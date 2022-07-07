@@ -51,12 +51,13 @@ class PhoneKeyboardConverter
         $newcode = '';
         foreach (self::$letterArr as $codeindex => $code) {
             if ($string == $codeindex) {
-                if ($currentN == $lastN) {
-                    $newcode .=  $code;
-                    break;
+                $newcode .=  $code;
+                
+                if ($currentN !== $lastN) {
+                    $newcode .=  $code. ',';
                 }
-                $newcode .=  $code . ',';
-                break;
+                
+              break;
             }
         }
 
